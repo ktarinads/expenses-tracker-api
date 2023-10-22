@@ -29,8 +29,8 @@ public class UserRepositoryImpl implements UserRepository{
 
            try {
                KeyHolder keyHolder = new GeneratedKeyHolder();
-               jdbcTemplate.update(conn -> {
-                   PreparedStatement ps = conn.prepareStatement(SQL_CREATE, Statement.RETURN_GENERATED_KEYS);
+               jdbcTemplate.update(connection -> {
+                   PreparedStatement ps = connection.prepareStatement(SQL_CREATE, Statement.RETURN_GENERATED_KEYS);
                    ps.setString(1, firsName);
                    ps.setString(2, lastName);
                    ps.setString(3, email);
